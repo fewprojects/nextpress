@@ -8,6 +8,5 @@ export default async function getAllBlogPosts() {
     },
   })
   const data = await response.json()
-  // console.log(data)
   return data?.posts
 }

@@ -7,13 +7,11 @@ import getAllBlogPosts from "@/app/blog/components/getBlogPosts"
 async function getPost(slug) {
   const data = await getAllBlogPosts()
   const post = await data.find((post) => post.slug === slug)
-  console.log(post)
   return post
 }
 export async function generateMetadata({ params }) {
   const { slug } = params
   const blog = await getPost(slug)
-  console.log(slug)
   if (!blog) {
     return;
   }
@@ -31,7 +29,6 @@ export async function generateMetadata({ params }) {
     return strippedText;
   }
   const allKeywords = Object.keys(blog?.tags).join(', ');
-  console.log(allKeywords)
   const description = stripHtml(blog?.excerpt)
   return {
     metadataBase: new URL(siteMetadata.siteUrl),

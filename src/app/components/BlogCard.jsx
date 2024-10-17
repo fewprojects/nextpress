@@ -3,7 +3,6 @@ import parseISO from 'date-fns/parseISO';
 import Image from 'next/image';
 import Link from 'next/link';
 function BlogCard({ blog }) {
-  console.log(blog.slug)
   return (
     <section>
       <Link href={`/blog/${blog.slug}`}>
